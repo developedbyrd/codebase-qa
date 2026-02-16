@@ -136,59 +136,79 @@ function QAContent() {
             <div className="prose prose-invert prose-sm max-w-none text-[var(--muted)]">
               <ReactMarkdown
                 components={{
-                  code({ node, inline, className, children, ...props }) {
+                  code({ className, children, ...props }) {
+                    const isBlock = className?.startsWith("language-");
+
+                    if (isBlock) {
+                      return (
+                        <code
+                          className={`${className} block bg-[var(--card)] rounded-lg p-4 text-sm border border-[var(--border)] overflow-x-auto`}
+                          {...props}
+                        >
+                          {children}
+                        </code>
+                      );
+                    }
+
                     return (
                       <code
-                        className={`${className} bg-[var(--card)] rounded px-1 py-0.5 text-[var(--accent)]`}
+                        className="bg-[var(--card)] rounded px-1 py-0.5 text-[var(--accent)] text-sm"
                         {...props}
                       >
                         {children}
                       </code>
                     );
                   },
-                  pre({ node, children }) {
+
+                  pre({ children }) {
                     return (
                       <pre className="bg-[var(--card)] rounded-lg p-4 overflow-x-auto text-sm border border-[var(--border)]">
                         {children}
                       </pre>
                     );
                   },
-                  h1({ node, children }) {
+
+                  h1({ children }) {
                     return (
                       <h1 className="text-2xl font-bold text-[var(--muted)] mt-4 mb-3">
                         {children}
                       </h1>
                     );
                   },
-                  h2({ node, children }) {
+
+                  h2({ children }) {
                     return (
                       <h2 className="text-xl font-semibold text-[var(--muted)] mt-3 mb-2">
                         {children}
                       </h2>
                     );
                   },
-                  h3({ node, children }) {
+
+                  h3({ children }) {
                     return (
                       <h3 className="text-lg font-medium text-[var(--muted)] mt-2 mb-1">
                         {children}
                       </h3>
                     );
                   },
-                  ul({ node, children }) {
+
+                  ul({ children }) {
                     return (
                       <ul className="list-disc list-inside space-y-1 text-[var(--muted)]">
                         {children}
                       </ul>
                     );
                   },
-                  ol({ node, children }) {
+
+                  ol({ children }) {
                     return (
                       <ol className="list-decimal list-inside space-y-1 text-[var(--muted)]">
                         {children}
                       </ol>
                     );
                   },
-                  a({ node, href, children }) {
+
+                  a({ href, children }) {
                     return (
                       <a
                         href={href}
@@ -200,7 +220,8 @@ function QAContent() {
                       </a>
                     );
                   },
-                  blockquote({ node, children }) {
+
+                  blockquote({ children }) {
                     return (
                       <blockquote className="border-l-4 border-[var(--border)] pl-4 italic text-[var(--muted)]">
                         {children}
