@@ -74,7 +74,8 @@ Further enhancements (suggested)
 - Improve input validation and accessibility improvements.
 
 Live link and repository
-- Please provide the live URL and your GitHub repository URL when you submit.
+- Live Link:- codebase-qa-beige.vercel.app
+- GitHub Repo Link:- https://github.com/developedbyrd/codebase-qa
 
 Notes
 - This doc is based on the current repository structure (frontend + backend) and the Options B codebase QA with Proof flow.
