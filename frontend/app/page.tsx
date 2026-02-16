@@ -30,14 +30,17 @@ export default function HomePage() {
     e.preventDefault();
     setError("");
     setResult(null);
+
     const url = githubUrl.trim();
     if (!url) {
       setError("Enter a GitHub repository URL");
       return;
     }
+
     setLoading(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 180000);
+
     try {
       const res = await fetch(`${API_BASE}/api/upload`, {
         method: "POST",
@@ -48,9 +51,11 @@ export default function HomePage() {
         }),
         signal: controller.signal,
       });
+
       clearTimeout(timeoutId);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Upload failed");
+
       setResult(data);
       setGithubUrl("");
       setProjectName("");
@@ -61,6 +66,7 @@ export default function HomePage() {
       const isNetwork =
         msg === "Failed to fetch" ||
         (err instanceof TypeError && err.message?.includes("fetch"));
+
       if (isAbort) {
         setError("Import is taking too long. Try a smaller repo or try again.");
       } else if (isNetwork) {
@@ -77,25 +83,31 @@ export default function HomePage() {
     e.preventDefault();
     setError("");
     setResult(null);
+
     if (!file) {
       setError("Select a .zip file");
       return;
     }
+
     setLoading(true);
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 120000);
+
     try {
       const form = new FormData();
       form.append("file", file);
       if (projectName.trim()) form.append("projectName", projectName.trim());
+
       const res = await fetch(`${API_BASE}/api/upload`, {
         method: "POST",
         body: form,
         signal: controller.signal,
       });
+
       clearTimeout(timeoutId);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Upload failed");
+
       setResult(data);
       setFile(null);
       setProjectName("");
@@ -106,6 +118,7 @@ export default function HomePage() {
       const isNetwork =
         msg === "Failed to fetch" ||
         (err instanceof TypeError && err.message?.includes("fetch"));
+
       if (isAbort) {
         setError("Upload is taking too long. Try a smaller zip or try again.");
       } else if (isNetwork) {
@@ -185,6 +198,7 @@ export default function HomePage() {
               <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[var(--accent)]" />
             )}
           </button>
+
           <button
             onClick={() => setActiveTab("zip")}
             className={`flex-1 px-6 py-4 text-sm font-medium transition-colors relative
@@ -206,7 +220,7 @@ export default function HomePage() {
 
         <div className="p-6">
           {activeTab === "github" ? (
-            <form onSubmit={handleGithubSubmit} className="space-y-4 cursor-pointer">
+            <form onSubmit={handleGithubSubmit} className="space-y-4">
               <div className="space-y-2">
                 <label className="text-sm text-[var(--muted)]">
                   Repository URL
@@ -222,6 +236,7 @@ export default function HomePage() {
                            transition-shadow"
                 />
               </div>
+
               <div className="space-y-2">
                 <label className="text-sm text-[var(--muted)]">
                   Project name (optional)
@@ -237,6 +252,7 @@ export default function HomePage() {
                            transition-shadow"
                 />
               </div>
+
               <button
                 type="submit"
                 disabled={loading}
@@ -253,21 +269,22 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Github className="w-4 h-4" />
-                    <span classname="cursor-pointer">Import from GitHub</span>
+                    <span className="cursor-pointer">
+                      Import from GitHub
+                    </span>
                   </>
                 )}
               </button>
             </form>
           ) : (
-            <form onSubmit={handleFileSubmit} className="space-y-4 cursor-pointer">
+            <form onSubmit={handleFileSubmit} className="space-y-4">
               <div className="space-y-2">
                 <label className="text-sm text-[var(--muted)]">ZIP file</label>
-                <div className="relative">
-                  <input
-                    type="file"
-                    accept=".zip"
-                    onChange={(e) => setFile(e.target.files?.[0] || null)}
-                    className="w-full text-sm text-[var(--text-primary)]
+                <input
+                  type="file"
+                  accept=".zip"
+                  onChange={(e) => setFile(e.target.files?.[0] || null)}
+                  className="w-full text-sm text-[var(--text-primary)]
                              file:mr-4 file:py-2 file:px-4
                              file:rounded-lg file:border-0
                              file:text-sm file:font-medium
@@ -275,8 +292,7 @@ export default function HomePage() {
                              hover:file:bg-[var(--accent-hover)]
                              file:transition-colors file:cursor-pointer
                              cursor-pointer"
-                  />
-                </div>
+                />
                 {file && (
                   <p className="text-xs text-[var(--muted)] mt-2">
                     Selected: {file.name} (
@@ -284,6 +300,7 @@ export default function HomePage() {
                   </p>
                 )}
               </div>
+
               <div className="space-y-2">
                 <label className="text-sm text-[var(--muted)]">
                   Project name (optional)
@@ -299,6 +316,7 @@ export default function HomePage() {
                            transition-shadow"
                 />
               </div>
+
               <button
                 type="submit"
                 disabled={loading || !file}
@@ -315,22 +333,13 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Upload className="w-4 h-4" />
-                    <span classname="cursor-pointer">Upload ZIP</span>
+                    <span className="cursor-pointer">Upload ZIP</span>
                   </>
                 )}
               </button>
             </form>
           )}
         </div>
-      </div>
-
-      <div className="text-xs text-[var(--muted)] border-t border-[var(--border)] pt-6">
-        <p className="mb-2">✨ Tips:</p>
-        <ul className="space-y-1 list-disc list-inside opacity-60">
-          <li>Large repositories may take a few minutes to process</li>
-          <li>Maximum ZIP file size: 100MB</li>
-          <li>Private repositories require authentication (coming soon)</li>
-        </ul>
       </div>
     </div>
   );
