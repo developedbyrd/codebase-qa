@@ -201,7 +201,7 @@ export default function HomePage() {
 
           <button
             onClick={() => setActiveTab("zip")}
-            className={`flex-1 px-6 py-4 text-sm font-medium transition-colors relative
+            className={`flex-1 px-6 py-4 text-sm font-medium transition-colors relative cursor-pointer
               ${
                 activeTab === "zip"
                   ? "text-[var(--text-primary)]"
@@ -259,7 +259,7 @@ export default function HomePage() {
                 className="w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white
                          hover:bg-[var(--accent-hover)] transition-colors
                          disabled:opacity-50 disabled:cursor-not-allowed
-                         flex items-center justify-center gap-2"
+                         flex items-center justify-center gap-2 cursor-pointer"
               >
                 {loading ? (
                   <>
@@ -269,7 +269,7 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Github className="w-4 h-4" />
-                    <span className="cursor-pointer">
+                    <span>
                       Import from GitHub
                     </span>
                   </>
@@ -323,7 +323,7 @@ export default function HomePage() {
                 className="w-full rounded-lg bg-[var(--accent)] px-4 py-2.5 text-sm font-medium text-white
                          hover:bg-[var(--accent-hover)] transition-colors
                          disabled:opacity-50 disabled:cursor-not-allowed
-                         flex items-center justify-center gap-2"
+                         flex items-center justify-center gap-2 cursor-pointer"
               >
                 {loading ? (
                   <>
@@ -333,7 +333,7 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Upload className="w-4 h-4" />
-                    <span className="cursor-pointer">Upload ZIP</span>
+                    <span>Upload ZIP</span>
                   </>
                 )}
               </button>
