@@ -74,7 +74,7 @@ Further enhancements (suggested)
 - Improve input validation and accessibility improvements.
 
 Live link and repository
-- Live Link:- codebase-qa-beige.vercel.app
+- Live Link:- [codebase-qa-beige.vercel.app](https://codebase-qa-beige.vercel.app/)
 - GitHub Repo Link:- https://github.com/developedbyrd/codebase-qa
 
 Notes
