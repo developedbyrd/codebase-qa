@@ -1,0 +1,25 @@
+{
+  "name": "codebase-qa-backend",
+  "version": "1.0.0",
+  "description": "Codebase Q&A with Proof - Backend API",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.13.5",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "extract-zip": "^2.0.1",
+    "helmet": "^8.1.0",
+    "mongoose": "^9.2.1",
+    "multer": "^2.0.2",
+    "node-fetch": "^3.3.2",
+    "node-stream-zip": "^1.15.0",
+    "nodemon": "^3.1.11"
+  }
+}

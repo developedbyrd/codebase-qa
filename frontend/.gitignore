@@ -1,0 +1,119 @@
+# ----------------------
+# OS generated files
+# ----------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ----------------------
+# Environment variables
+# ----------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------
+# Dependency directories
+# ----------------------
+node_modules/
+vendor/
+packages/
+
+# ----------------------
+# Build output
+# ----------------------
+dist/
+build/
+out/
+target/
+bin/
+obj/
+
+# ----------------------
+# Coverage
+# ----------------------
+coverage/
+*.lcov
+
+# ----------------------
+# Cache
+# ----------------------
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.svelte-kit/
+
+# ----------------------
+# IDE / Editor
+# ----------------------
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.iml
+
+# ----------------------
+# TypeScript
+# ----------------------
+*.tsbuildinfo
+
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.sqlite3
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ----------------------
+# Java
+# ----------------------
+*.class
+*.jar
+*.war
+*.ear
+
+# ----------------------
+# Go
+# ----------------------
+*.exe
+*.test
+*.out
+
+# ----------------------
+# Rust
+# ----------------------
+/target/
+Cargo.lock
+
+# ----------------------
+# Docker
+# ----------------------
+docker-compose.override.yml
+
+# ----------------------
+# Misc
+# ----------------------
+*.tmp
+*.bak
+*.swp
