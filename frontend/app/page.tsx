@@ -147,7 +147,7 @@ export default function HomePage() {
               </p>
               <a
                 href={`/qa?projectId=${result.projectId}`}
-                className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] mt-4 group"
+                className="inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:text-[var(--accent-hover)] mt-4 group cursor-pointer"
               >
                 Go to Q&A
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -170,7 +170,7 @@ export default function HomePage() {
         <div className="flex border-b border-[var(--border)]">
           <button
             onClick={() => setActiveTab("github")}
-            className={`flex-1 px-6 py-4 text-sm font-medium transition-colors relative
+            className={`flex-1 px-6 py-4 text-sm font-medium transition-colors relative cursor-pointer
               ${
                 activeTab === "github"
                   ? "text-[var(--text-primary)]"
@@ -206,7 +206,7 @@ export default function HomePage() {
 
         <div className="p-6">
           {activeTab === "github" ? (
-            <form onSubmit={handleGithubSubmit} className="space-y-4">
+            <form onSubmit={handleGithubSubmit} className="space-y-4 cursor-pointer">
               <div className="space-y-2">
                 <label className="text-sm text-[var(--muted)]">
                   Repository URL
@@ -253,13 +253,13 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Github className="w-4 h-4" />
-                    <span>Import from GitHub</span>
+                    <span classname="cursor-pointer">Import from GitHub</span>
                   </>
                 )}
               </button>
             </form>
           ) : (
-            <form onSubmit={handleFileSubmit} className="space-y-4">
+            <form onSubmit={handleFileSubmit} className="space-y-4 cursor-pointer">
               <div className="space-y-2">
                 <label className="text-sm text-[var(--muted)]">ZIP file</label>
                 <div className="relative">
@@ -315,7 +315,7 @@ export default function HomePage() {
                 ) : (
                   <>
                     <Upload className="w-4 h-4" />
-                    <span>Upload ZIP</span>
+                    <span classname="cursor-pointer">Upload ZIP</span>
                   </>
                 )}
               </button>

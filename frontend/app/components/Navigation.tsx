@@ -55,7 +55,7 @@ export default function Navigation() {
               onClick={toggleTheme}
               className="p-2 rounded-lg border border-[var(--border)] bg-[var(--bg)] 
                        text-[var(--muted)] hover:text-[var(--text-primary)]
-                       transition-colors"
+                       transition-colors cursor-pointer"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (

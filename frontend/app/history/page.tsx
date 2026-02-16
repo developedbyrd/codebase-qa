@@ -102,7 +102,7 @@ export default function HistoryPage() {
         <button
           onClick={loadHistory}
           disabled={loading}
-          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50"
+          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50 cursor-pointer"
         >
           {loading ? "Loading…" : "Load"}
         </button>
@@ -273,7 +273,7 @@ export default function HistoryPage() {
                           </div>
                           <button
                             onClick={() => toggleSnippet(item._id, refIndex)}
-                            className="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors flex-shrink-0 ml-2"
+                            className="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors flex-shrink-0 ml-2 cursor-pointer"
                           >
                             {expandedSnippets.has(`${item._id}-${refIndex}`)
                               ? "▼ Hide"

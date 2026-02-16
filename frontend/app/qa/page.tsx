@@ -115,7 +115,7 @@ function QAContent() {
         <button
           type="submit"
           disabled={loading}
-          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50"
+          className="rounded-lg bg-[var(--accent)] px-4 py-2 text-sm font-medium text-white hover:opacity-90 disabled:opacity-50 cursor-pointer"
         >
           {loading ? "Asking…" : "Ask"}
         </button>
@@ -259,7 +259,7 @@ function QAContent() {
                     </div>
                     <button
                       onClick={() => toggleSnippet(index)}
-                      className="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors"
+                      className="text-xs text-[var(--muted)] hover:text-[var(--accent)] transition-colors cursor-pointer"
                     >
                       {expandedSnippets.has(index) ? "▼ Hide" : "▶ Show"}{" "}
                       snippet
