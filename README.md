@@ -17,7 +17,6 @@ What is not done (as of this submission)
 - No user authentication or multi-user collaboration.
 - No unit or integration tests included in this patch.
 - No production-grade deployment scripts or CI configuration (Dockerfiles exist, but no deploy pipeline is included here).
-- No advanced features like weighting of vendors, export of reports, or refactor suggestions (these can be added as future work).
 
 How to run locally
 Prerequisites
