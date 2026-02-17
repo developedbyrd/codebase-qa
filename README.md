@@ -65,7 +65,7 @@ Notes on data & privacy
 Files added in this patch
 - README.md
 - AI_NOTES.md (AI usage notes)
-- ABOUTME.md (your personal profile and resume)
+- ABOUTME.md (personal profile and resume)
 - PROMPTS_USED.md (record of prompts used during development)
 
 Further enhancements (suggested)
